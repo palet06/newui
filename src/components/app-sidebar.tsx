@@ -1,31 +1,29 @@
+"use client"
 import * as React from "react"
-import { GalleryVerticalEnd, Minus, Plus } from "lucide-react"
-
+import { GalleryVerticalEnd } from "lucide-react"
+import { MenuItem } from 'primereact/menuitem';
 import { SearchForm } from "@/components/search-form"
 import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
+  
 } from "@/components/ui/collapsible"
 import {
   Sidebar,
   SidebarContent,
-  SidebarGroup,
+  
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarMenuSubButton,
-  SidebarMenuSubItem,
+ 
   SidebarRail,
 } from "@/components/ui/sidebar"
 import { PanelMenu } from "primereact/panelmenu"
 
-const items = [
+const items:MenuItem[] = [
   {
     label: "Başvuru Sorgula",
     icon: "pi pi-search",
+    
   },
   {
     label: "Dış Kurum Hizmetleri",
@@ -38,181 +36,71 @@ const items = [
       {
         label: "Duyuru Tanımlama",
         icon: "pi pi-megaphone",
+       className:"pl-5 text-md bg-blue"
       },
       {
         label: "Şerh/Kriter Tanımlama",
         icon: "pi pi-envelope",
+        className:"pl-5 text-md !bg-blue"
       },
       {
-        label: "SMS/E-Posta/Revizyon Tanımlama",
+        label: "SMS-E-Posta-Revizyon Tanımlama",
         icon: "pi pi-fw pi-users",
+        className:"pl-5 text-md !text-blue hover:text-blue leading-5"
+      },
+      {
+        label: "İkametsiz Başvuru Yetki İşlemleri",
+        icon: "pi pi-id-card",
+        className:"pl-5 text-md !text-blue hover:text-blue leading-5"
+       
+      },
+      {
+        label: "Organizasyon İşlemleri",
+        icon: "pi pi-id-card",
+        className:"pl-5 text-md !text-blue hover:text-blue leading-5"
+       
       },
     ],
+    className:"!text-blue"
   },
   {
     label: "İstatistikler",
-    icon: "pi pi-fw pi-calendar",
+    icon: "pi pi-chart-line",
   },
   {
     label: "Sorgulamalar",
-    icon: "pi pi-fw pi-calendar",
+    icon: "pi pi-question",
   },
   {
     label: "Güncelleme İşlemleri",
-    icon: "pi pi-fw pi-calendar",
+    icon: "pi pi-refresh",
   },
   {
     label: "Genel Bilgiler",
-    icon: "pi pi-fw pi-calendar",
-    active: true,
+    icon: "pi pi-id-card",
+   
   },
+  
 ];
 
 // This is sample data.
-const data = {
-  navMain: [
-    {
-      title: "Getting Started",
-      url: "#",
-      items: [
-        {
-          title: "Installation",
-          url: "#",
-        },
-        {
-          title: "Project Structure",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Building Your Application",
-      url: "#",
-      items: [
-        {
-          title: "Routing",
-          url: "#",
-        },
-        {
-          title: "Data Fetching",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "Rendering",
-          url: "#",
-        },
-        {
-          title: "Caching",
-          url: "#",
-        },
-        {
-          title: "Styling",
-          url: "#",
-        },
-        {
-          title: "Optimizing",
-          url: "#",
-        },
-        {
-          title: "Configuring",
-          url: "#",
-        },
-        {
-          title: "Testing",
-          url: "#",
-        },
-        {
-          title: "Authentication",
-          url: "#",
-        },
-        {
-          title: "Deploying",
-          url: "#",
-        },
-        {
-          title: "Upgrading",
-          url: "#",
-        },
-        {
-          title: "Examples",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "API Reference",
-      url: "#",
-      items: [
-        {
-          title: "Components",
-          url: "#",
-        },
-        {
-          title: "File Conventions",
-          url: "#",
-        },
-        {
-          title: "Functions",
-          url: "#",
-        },
-        {
-          title: "next.config.js Options",
-          url: "#",
-        },
-        {
-          title: "CLI",
-          url: "#",
-        },
-        {
-          title: "Edge Runtime",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Architecture",
-      url: "#",
-      items: [
-        {
-          title: "Accessibility",
-          url: "#",
-        },
-        {
-          title: "Fast Refresh",
-          url: "#",
-        },
-        {
-          title: "Next.js Compiler",
-          url: "#",
-        },
-        {
-          title: "Supported Browsers",
-          url: "#",
-        },
-        {
-          title: "Turbopack",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Community",
-      url: "#",
-      items: [
-        {
-          title: "Contribution Guide",
-          url: "#",
-        },
-      ],
-    },
-  ],
-}
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const css = `
+        .p-panelmenu-header-content {
+          
+            
+            background-color: white;
+            border:none;
+          
+
+        }
+
+       
+    `;
   return (
     <Sidebar {...props}>
-      <SidebarHeader>
+      <SidebarHeader className="bg-[#3980F5] text-white">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
@@ -221,17 +109,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <GalleryVerticalEnd className="size-4" />
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-medium">Documentation</span>
+                  <span className="font-medium">UİGM</span>
                   <span className="">v1.0.0</span>
                 </div>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
-        <SearchForm />
+        
       </SidebarHeader>
-      <SidebarContent>
-      <PanelMenu   model={items} className="w-full md:w-20rem leading-6 bg-transparent" />
+      <SidebarContent >
+      <PanelMenu pt={{panel:{className:"my-switch-slider"}}}  model={items} className="w-full bg-white leading-6 " />
+      <style>{css}</style>
       </SidebarContent>
       <SidebarRail />
     </Sidebar>
